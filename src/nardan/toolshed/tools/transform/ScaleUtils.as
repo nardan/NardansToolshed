@@ -25,9 +25,10 @@
 		 * Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
 		 * @param	clip: DisplayObject(clip to scale)
 		 * @param	rect: Rectangle(to fit clip into)
-		 * @param	centre: Boolean(Centre clip in rectangle?)
+		 * @param	vAlign: String(vertical alignment)
+		 * @param	hAlign: String(horizontal alignment)
 		 */
-		public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, centre:Boolean = true):void {
+		public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:String = "centre", hAlign:String = "centre"):void {
 			var clipRatio:Number = clip.width / clip.height;
 			var rectRatio:Number = rect.width / rect.height;
 			
@@ -39,11 +40,7 @@
 				clip.width = rect.height * clipRatio;
 			}
 			
-			if (centre) {
-				alignInRectInRect(clip, rect, ALIGN_CENTRE, ALIGN_CENTRE);
-			}else {
-				alignInRectInRect(clip, rect, ALIGN_TOP, ALIGN_LEFT);
-			}
+			alignInRectInRect(clip, rect, vAlign, hAlign);
 		}
 		
 		/**
@@ -81,7 +78,7 @@
 			var tl:Point = clip.getBounds(clip).topLeft;
 			
 			var topOffset:Number = clip.y - tl.y;
-			switch(vAlign) {
+			switch(vAlign.toLowerCase()) {
 				case ALIGN_TOP:
 					clip.x = rect.x + topOffset;
 					break;
@@ -94,7 +91,7 @@
 			}
 			
 			var leftOffset:Number = clip.x - tl.x;
-			switch(hAlign) {
+			switch(hAlign.toLowerCase()) {
 				case ALIGN_LEFT:
 					clip.y = rect.y + leftOffset;
 					break;
