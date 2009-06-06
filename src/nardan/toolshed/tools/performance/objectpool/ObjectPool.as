@@ -30,23 +30,23 @@ package nardan.toolshed.tools.performance.objectpool
 	 * @author real_nardan@hotmail.com
 	 */
 	public class ObjectPool {
-		/******************************************
+		/* **************************************** *
 		 * Static Constants + Variables
-		 ******************************************/
-		/******************************************
+		 * **************************************** */
+		/* **************************************** *
 		 * Static Methods
-		 ******************************************/
-		/******************************************
+		 * **************************************** */
+		/* **************************************** *
 		 * Properties
-		 ******************************************/
+		 * **************************************** */
 		protected var _poolSize:uint;
 		protected var pool:Array;
 		protected var classString:String;
 		protected var _objectClass:Class;
 		
-		/******************************************
+		/* **************************************** *
 		 * Constructor
-		 ******************************************/
+		 * **************************************** */
 		public function ObjectPool(objectClass:Class, poolSize:uint)
 		{
 			//trace('ObjectPool::ObjectPool _objectClass = ' + _objectClass + ' poolSize = ' + poolSize);
@@ -56,16 +56,16 @@ package nardan.toolshed.tools.performance.objectpool
 			pool = new Array();
 			this.populate();
 		}
-		/******************************************
+		/* **************************************** *
 		 * Getters + Setters
-		 ******************************************/
+		 * **************************************** */
 		public function get objectClass():Class { return _objectClass; }
 		
 		public function get poolSize():uint { return _poolSize; }
 		
-		/******************************************
+		/* **************************************** *
 		 * Public Methods
-		 ******************************************/
+		 * **************************************** */
 		
 		 /**
 		  * Gets an Object from the pool
@@ -127,11 +127,11 @@ package nardan.toolshed.tools.performance.objectpool
 		{
 			return '[object ObjectPool class=' + classString + ' size=' + pool.length + ']';
 		}
-		/******************************************
+		/* **************************************** *
 		 * Event Handlers
-		 ******************************************/
-		/******************************************
+		 * **************************************** */
+		/* **************************************** *
 		 * Protected + Private Methods
-		 ******************************************/
+		 * **************************************** */
 	}
 }

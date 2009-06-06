@@ -32,14 +32,16 @@ package nardan.toolshed.tools.performance.objectpool
 	 */
 	public class ObjectPoolCache
 	{
-		/******************************************
+		/* **************************************** *
 		 * Static Constants + Variables
-		 ******************************************/
+		 * **************************************** */
+		
 		private static var _instance : ObjectPoolCache;
 		protected static const POOL_SIZE:int = 5;
-		/******************************************
+		/* **************************************** *
 		 * Static Methods
-		 ******************************************/
+		 * **************************************** */
+		
 		public static function getInstance():ObjectPoolCache
 		{
 			if (_instance == null) {
@@ -48,26 +50,26 @@ package nardan.toolshed.tools.performance.objectpool
 			return _instance;
 		}
 		
-		/******************************************
+		/* **************************************** *
 		 * Properties
-		 ******************************************/
+		 * **************************************** */
 		protected var _pools:Dictionary;
 		
-		/******************************************
+		/* **************************************** *
 		 * Constructor
-		 ******************************************/
+		 * **************************************** */
 		public function ObjectPoolCache(enforcer:SingletonEnforcer) 
 		{
 			_pools = new Dictionary();
 		}
-		/******************************************
+		/* **************************************** *
 		 * Getters + Setters
-		 ******************************************/
+		 * **************************************** */
 		public function get pools():Dictionary { return _pools; }
 		
-		/******************************************
+		/* **************************************** *
 		 * Public Methods
-		 ******************************************/
+		 * **************************************** */
 		
 		/**
 		 * Gets an object from the class pool
@@ -137,12 +139,12 @@ package nardan.toolshed.tools.performance.objectpool
 			return _pools[objectClass] as ObjectPool;
 		}
 		
-		/******************************************
+		/* **************************************** *
 		 * Event Handlers
-		 ******************************************/
-		/******************************************
+		 * **************************************** */
+		/* **************************************** *
 		 * Protected + Private Methods
-		 ******************************************/
+		 * **************************************** */
 		
 		/**
 		 * Populates the pool up to POOL_SIZE
