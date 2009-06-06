@@ -8,7 +8,7 @@
 	 * ...
 	 * @author real_nardan@hotmail.com
 	 */
-	public class ScaleUtils 
+	public class TransformUtils 
 	{
 		/******************************************
 		 * Static Constants & Variables
@@ -40,7 +40,7 @@
 				clip.width = rect.height * clipRatio;
 			}
 			
-			alignInRectInRect(clip, rect, vAlign, hAlign);
+			alignInRect(clip, rect, vAlign, hAlign);
 		}
 		
 		/**
@@ -52,7 +52,7 @@
 		{
 			clip.width = rect.width;
 			clip.height = rect.height
-			alignInRectInRect(clip, rect, ALIGN_TOP, ALIGN_LEFT);
+			alignInRect(clip, rect, ALIGN_TOP, ALIGN_LEFT);
 		}
 		
 		/**
@@ -73,7 +73,7 @@
 		 * @param	vAlign: String(verticl alignment)
 		 * @param	hAlign: String (horizontal alignment)
 		 */
-		public function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:String = "centre", hAlign:String = "centre"):void
+		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:String = "centre", hAlign:String = "centre"):void
 		{
 			var tl:Point = clip.getBounds(clip).topLeft;
 			

@@ -12,7 +12,7 @@
 		 * Static Constants & Variables
 		 ******************************************/
 		private static var _instance : ObjectPoolCache;
-		private static const POOL_SIZE:int = 5;
+		protected static const POOL_SIZE:int = 5;
 		/******************************************
 		 * Static Methods
 		 ******************************************/
@@ -28,7 +28,7 @@
 		 * Properties
 		 ******************************************/
 		protected var _pools:Dictionary;
-		//public var _pools:Dictionary;
+		
 		/******************************************
 		 * Constructor
 		 ******************************************/

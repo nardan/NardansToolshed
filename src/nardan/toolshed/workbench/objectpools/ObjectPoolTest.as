@@ -33,7 +33,7 @@
 			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
-		private function onEnterFrame(e:Event):void 
+		protected function onEnterFrame(e:Event):void 
 		{
 			var sp:PooledSprite;
 			if (Math.random() > 0.25) {
