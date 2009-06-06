@@ -49,7 +49,6 @@ package nardan.toolshed.tools.performance.objectpool
 		 * **************************************** */
 		public function ObjectPool(objectClass:Class, poolSize:uint)
 		{
-			//trace('ObjectPool::ObjectPool _objectClass = ' + _objectClass + ' poolSize = ' + poolSize);
 			this._objectClass = objectClass;
 			this._poolSize = poolSize;  
 			classString = _objectClass.toString();
@@ -80,7 +79,6 @@ package nardan.toolshed.tools.performance.objectpool
 				populate();
 			}
 			
-			//trace('ObjectPool::get this = '+this+' object = '+object);
 			if (object is IPoolable) {
 				(object as IPoolable).getPrepare();
 			}
@@ -102,8 +100,6 @@ package nardan.toolshed.tools.performance.objectpool
 			if (pool.length < _poolSize) {
 				pool.push(object);
 			}
-			
-			//trace('ObjectPool::set this = '+this+' object = '+object);
 		}
 		
 		/**

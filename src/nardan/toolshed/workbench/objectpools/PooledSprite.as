@@ -60,9 +60,9 @@ package nardan.toolshed.workbench.objectpools
 		{
 			//trace('PooledSprite::getPrepare');
 			var col:uint = Math.floor((0xFFFFFF + 1) * Math.random());
-			var rad:Number = 25 + Math.random() * 100;
+			var rad:Number = 25 + Math.random() * 125;
 			this.graphics.beginFill(col);
-			this.graphics.drawCircle( -rad, -rad, rad);
+			this.graphics.drawCircle( 0, 0, rad);
 		}
 		
 		public function setPrepare():void

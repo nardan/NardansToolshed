@@ -58,17 +58,16 @@ package nardan.toolshed.workbench.objectpools
 		protected function onEnterFrame(e:Event):void 
 		{
 			var sp:PooledSprite;
-			if (Math.random() > 0.25) {
+			if (Math.random() > 0.25 || spList.length == 0) {
 				//sp = ObjectPoolCache.getInstance().getObject(PooledSprite);
 				sp = ObjectPoolCache.getInstance().get(PooledSprite);
-				sp.x =  Math.random() * 500;
-				sp.y =  Math.random() * 450;
+				sp.x =  Math.random() * 800;
+				sp.y =  Math.random() * 600;
 				this.addChild(sp);
 				this.spList.push(sp);
 			}else {
 				sp = spList.splice(Math.floor(spList.length * Math.random()), 1)[0];
 				this.removeChild(sp);
-				//ObjectPoolCache.getInstance().setObject(sp);
 				ObjectPoolCache.getInstance().set(sp);
 			}
 		}

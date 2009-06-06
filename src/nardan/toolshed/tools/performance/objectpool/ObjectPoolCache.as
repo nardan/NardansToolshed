@@ -37,7 +37,7 @@ package nardan.toolshed.tools.performance.objectpool
 		 * **************************************** */
 		
 		private static var _instance : ObjectPoolCache;
-		protected static const POOL_SIZE:int = 5;
+		protected static const DEFAULT_POOL_SIZE:int = 5;
 		/* **************************************** *
 		 * Static Methods
 		 * **************************************** */
@@ -102,7 +102,7 @@ package nardan.toolshed.tools.performance.objectpool
 		{
 			if (_pools[objectClass] == null)
 			{
-				minSize = (minSize > 0) ? minSize : POOL_SIZE;
+				minSize = (minSize > 0) ? minSize : DEFAULT_POOL_SIZE;
 				_pools[objectClass] = new ObjectPool(objectClass, minSize);
 			}
 		}
@@ -147,7 +147,7 @@ package nardan.toolshed.tools.performance.objectpool
 		 * **************************************** */
 		
 		/**
-		 * Populates the pool up to POOL_SIZE
+		 * Populates the pool up to it's max size
 		 * @param	objectClass
 		 */
 		protected function populatePool(objectClass:Class):void
