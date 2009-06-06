@@ -27,19 +27,21 @@ package nardan.toolshed.tools.transform
 	import flash.geom.Rectangle;
 	
 	/**
-	 * ...
+	 * A collection of static functions to apply some standard transformation tasks.
+	 * 
 	 * @author real_nardan@hotmail.com
 	 */
 	public class TransformUtils 
 	{
 		/******************************************
-		 * Static Constants & Variables
+		 * Static Constants + Variables
 		 ******************************************/
 		public static const ALIGN_TOP:String = "top";
 		public static const ALIGN_BOTTOM:String = "bottom";
 		public static const ALIGN_LEFT:String = "left";
 		public static const ALIGN_RIGHT:String = "right";
 		public static const ALIGN_CENTRE:String = "centre";
+		
 		/******************************************
 		 * Static Methods
 		 ******************************************/
@@ -129,7 +131,7 @@ package nardan.toolshed.tools.transform
 		 * Constructor
 		 ******************************************/
 		/******************************************
-		 * Getters & Setters
+		 * Getters + Setters
 		 ******************************************/
 		/******************************************
 		 * Public Methods
@@ -138,7 +140,7 @@ package nardan.toolshed.tools.transform
 		 * Event Handlers
 		 ******************************************/
 		/******************************************
-		 * Protected * Private Methods
+		 * Protected + Private Methods
 		 ******************************************/
 	}
 	

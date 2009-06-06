@@ -25,13 +25,15 @@ package nardan.toolshed.tools.performance.objectpool
 	import flash.utils.Dictionary;
 	
 	/**
-	 * ...
+	 * A singleton to collate, hold and access ObjectPools.
+	 * 
 	 * @author real_nardan@hotmail.com
+	 * @see nardan.toolshed.tools.performance.objectpool.ObjectPool
 	 */
 	public class ObjectPoolCache
 	{
 		/******************************************
-		 * Static Constants & Variables
+		 * Static Constants + Variables
 		 ******************************************/
 		private static var _instance : ObjectPoolCache;
 		protected static const POOL_SIZE:int = 5;
@@ -59,7 +61,7 @@ package nardan.toolshed.tools.performance.objectpool
 			_pools = new Dictionary();
 		}
 		/******************************************
-		 * Getters & Setters
+		 * Getters + Setters
 		 ******************************************/
 		public function get pools():Dictionary { return _pools; }
 		
@@ -70,13 +72,10 @@ package nardan.toolshed.tools.performance.objectpool
 		/**
 		 * Gets an object from the class pool
 		 * @param	objectClass
-		 * @return
 		 */
-		//public function getObject(objectClass:Class):*
 		public function get(objectClass:Class):*
 		{
 			var pool:ObjectPool =  this.getPool(objectClass);
-			//var obj:* = pool.getObject();
 			var obj:* = pool.get();
 			
 			return obj
@@ -86,12 +85,10 @@ package nardan.toolshed.tools.performance.objectpool
 		 * Returns an object to the pool if needed
 		 * @param	object
 		 */
-		//public function setObject(object:*):void
 		public function set(object:*):void
 		{
 			var objectClass:Class = object.constructor as Class;
 			var pool:ObjectPool =  this.getPool(objectClass);
-			//pool.setObject(object);
 			pool.set(object);
 		}
 		
@@ -144,7 +141,7 @@ package nardan.toolshed.tools.performance.objectpool
 		 * Event Handlers
 		 ******************************************/
 		/******************************************
-		 * Protected * Private Methods
+		 * Protected + Private Methods
 		 ******************************************/
 		
 		/**

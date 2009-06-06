@@ -31,7 +31,7 @@ package nardan.toolshed.tools.performance.objectpool
 	 */
 	public class ObjectPool {
 		/******************************************
-		 * Static Constants & Variables
+		 * Static Constants + Variables
 		 ******************************************/
 		/******************************************
 		 * Static Methods
@@ -57,7 +57,7 @@ package nardan.toolshed.tools.performance.objectpool
 			this.populate();
 		}
 		/******************************************
-		 * Getters & Setters
+		 * Getters + Setters
 		 ******************************************/
 		public function get objectClass():Class { return _objectClass; }
 		
@@ -131,7 +131,7 @@ package nardan.toolshed.tools.performance.objectpool
 		 * Event Handlers
 		 ******************************************/
 		/******************************************
-		 * Protected * Private Methods
+		 * Protected + Private Methods
 		 ******************************************/
 	}
 }

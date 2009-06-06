@@ -31,7 +31,7 @@ package nardan.toolshed.tools.performance.objectpool
 	 * setPrepare(): Gets called when returned to it's pool
 	 * 
 	 * @author real_nardan@hotmail.com
-	 * @see nardan.toolshed.tools.performance.ObjectPool
+	 * @see nardan.toolshed.tools.performance.objectpool.ObjectPool
 	 */
 	public interface IPoolable 
 	{
