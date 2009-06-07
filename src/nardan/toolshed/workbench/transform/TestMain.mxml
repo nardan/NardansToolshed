@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test:TestApp xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:test="nardan.toolshed.workbench.transform.*" viewSourceURL="src/CodeBehind/index.html">	
+	<mx:VDividedBox width="100%" height="100%" id="vBox">
+		<mx:Canvas width="100%" height="100%" id="canvas" backgroundColor="#FFFFFF">
+			
+		</mx:Canvas>
+		<mx:HBox height="50" id="controlsBox">
+			<mx:Label text="vAlign"/>
+			<mx:HSlider change="applyRectangle()" minimum="0" maximum="1" value="0" id="vAlign" liveDragging="true" />
+			<mx:Label text="hAlign"/>
+			<mx:HSlider change="applyRectangle()" minimum="0" maximum="1" value="0" id="hAlign" liveDragging="true" />
+		</mx:HBox>
+	</mx:VDividedBox>
+</test:TestApp>

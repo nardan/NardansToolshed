@@ -36,11 +36,11 @@ package nardan.toolshed.tools.transform
 		/* **************************************** *
 		 * Static Constants + Variables
 		 * **************************************** */
-		public static const ALIGN_TOP:String = "top";
-		public static const ALIGN_BOTTOM:String = "bottom";
-		public static const ALIGN_LEFT:String = "left";
-		public static const ALIGN_RIGHT:String = "right";
-		public static const ALIGN_CENTRE:String = "centre";
+		public static const ALIGN_TOP:Number = 0;
+		public static const ALIGN_BOTTOM:Number = 1;
+		public static const ALIGN_LEFT:Number = 0;
+		public static const ALIGN_RIGHT:Number = 1;
+		public static const ALIGN_CENTRE:Number = 0.5;
 		
 		/* **************************************** *
 		 * Static Methods
@@ -52,11 +52,10 @@ package nardan.toolshed.tools.transform
 		 * @param	vAlign: String(vertical alignment)
 		 * @param	hAlign: String(horizontal alignment)
 		 */
-		public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:String = "centre", hAlign:String = "centre"):void {
+		public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
 			var clipRatio:Number = clip.width / clip.height;
-			var rectRatio:Number = rect.width / rect.height;
 			
-			if (clipRatio > rectRatio) { // treat as landscape
+			if (clipRatio > rect.width / rect.height) { // treat as landscape
 				clip.width = rect.width;
 				clip.height = rect.width / clipRatio;
 			}else { // treat as portrait
@@ -97,35 +96,11 @@ package nardan.toolshed.tools.transform
 		 * @param	vAlign: String(verticl alignment)
 		 * @param	hAlign: String (horizontal alignment)
 		 */
-		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:String = "centre", hAlign:String = "centre"):void
+		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void
 		{
 			var tl:Point = clip.getBounds(clip).topLeft;
-			
-			var topOffset:Number = clip.y - tl.y;
-			switch(vAlign.toLowerCase()) {
-				case ALIGN_TOP:
-					clip.x = rect.x + topOffset;
-					break;
-				case ALIGN_BOTTOM:
-					clip.x = rect.x + topOffset +(rect.height - clip.height);
-					break;
-				case ALIGN_CENTRE:
-				default:
-					clip.x = rect.x + topOffset +(rect.height - clip.height) / 2;
-			}
-			
-			var leftOffset:Number = clip.x - tl.x;
-			switch(hAlign.toLowerCase()) {
-				case ALIGN_LEFT:
-					clip.y = rect.y + leftOffset;
-					break;
-				case ALIGN_RIGHT:
-					clip.y = rect.y + leftOffset +(rect.width - clip.width);
-					break;
-				case ALIGN_CENTRE:
-				default:
-					clip.y = rect.y + leftOffset +(rect.width - clip.width) / 2;
-			}
+			clip.y = rect.y + clip.y - tl.y + vAlign * (rect.height - clip.height);
+			clip.x = rect.x + clip.x - tl.x + hAlign * (rect.width - clip.width);
 		}
 		/* **************************************** *
 		 * Constructor
