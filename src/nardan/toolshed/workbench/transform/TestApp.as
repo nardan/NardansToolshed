@@ -31,7 +31,7 @@
 		/* **************************************** *
 		 * Properties
 		* **************************************** */
-		[Embed(source = '../../../../../lib/1508849_efd4_625x1000.jpg')]
+		[Embed(source='1508849_efd4_625x1000.jpg')]
 		public var imageExample:Class;
 		
 		public var vBox:VDividedBox;
@@ -72,9 +72,7 @@
 			can.rawChildren.addChild(sp);
 			
 			rect = new Rectangle(50, 50, 300, 200);
-			
-			
-			
+		
 			var controlsBox:Box = vBox.getChildByName("controlsBox") as Box;
 			vAlign = controlsBox.getChildByName("vAlign") as Slider;
 			hAlign = controlsBox.getChildByName("hAlign") as Slider;
