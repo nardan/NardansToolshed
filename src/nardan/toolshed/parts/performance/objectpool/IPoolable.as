@@ -35,7 +35,13 @@ package nardan.toolshed.parts.performance.objectpool
 	 */
 	public interface IPoolable 
 	{
+		/**
+		 * Gets called when an IPoolable object is retrieved from an ObjectPool
+		 */
 		function getPrepare():void;
+		/**
+		 * Gets called when an IPoolable object is returned to an ObjectPool
+		 */
 		function setPrepare():void;
 	}
 	

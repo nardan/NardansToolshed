@@ -37,11 +37,15 @@ package nardan.toolshed.parts.performance.objectpool
 		 * **************************************** */
 		
 		private static var _instance : ObjectPoolCache;
+		/** The Deafult size of a pool is none is specified */
 		protected static const DEFAULT_POOL_SIZE:int = 5;
 		/* **************************************** *
 		 * Static Methods
 		 * **************************************** */
-		
+		/**
+		 * Singleton Implementation
+		 * @return
+		 */
 		public static function getInstance():ObjectPoolCache
 		{
 			if (_instance == null) {
@@ -53,11 +57,13 @@ package nardan.toolshed.parts.performance.objectpool
 		/* **************************************** *
 		 * Properties
 		 * **************************************** */
+		/** @private is protected for sub-classing reasons*/
 		protected var _pools:Dictionary;
 		
 		/* **************************************** *
 		 * Constructor
 		 * **************************************** */
+		/** @private */
 		public function ObjectPoolCache(enforcer:SingletonEnforcer) 
 		{
 			_pools = new Dictionary();
@@ -65,6 +71,7 @@ package nardan.toolshed.parts.performance.objectpool
 		/* **************************************** *
 		 * Getters + Setters
 		 * **************************************** */
+		/** A Dictionary of the ObjectPools */
 		public function get pools():Dictionary { return _pools; }
 		
 		/* **************************************** *
@@ -103,7 +110,23 @@ package nardan.toolshed.parts.performance.objectpool
 			if (_pools[objectClass] == null)
 			{
 				minSize = (minSize > 0) ? minSize : DEFAULT_POOL_SIZE;
-				_pools[objectClass] = new ObjectPool(objectClass, minSize);
+				var pool:ObjectPool = new ObjectPool(objectClass, minSize);
+				this.addPool(pool);
+			}
+		}
+		
+		/**
+		 * Adds an ObjectPool to the cache
+		 * 
+		 * @param	pool: ObjectPool
+		 */
+		public function addPool(pool:ObjectPool):void
+		{
+			if (_pools[pool.objectClass] != null)
+			{
+				throw new Error("Pool for "+pool.objectClass+" already exists");
+			}else {
+				_pools[pool.objectClass] = pool;
 			}
 		}
 		

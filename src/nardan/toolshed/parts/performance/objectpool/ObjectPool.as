@@ -24,7 +24,7 @@ package nardan.toolshed.parts.performance.objectpool
 {
 	import flash.utils.Dictionary;
 	
-	/*
+	/**
 	 * An ObjectPool maintains a list of objects of a specidied Class to be called upon when needed.
 	 * 
 	 * @author real_nardan@hotmail.com
@@ -39,28 +39,40 @@ package nardan.toolshed.parts.performance.objectpool
 		/* **************************************** *
 		 * Properties
 		 * **************************************** */
+		/** @private is protected for sub-classing reasons*/
 		protected var _poolSize:uint;
+		/** The pool of objects */
 		protected var pool:Array;
+		/** @private is protected for sub-classing reasons*/
 		protected var classString:String;
+		/** @private is protected for sub-classing reasons*/
 		protected var _objectClass:Class;
 		
 		/* **************************************** *
 		 * Constructor
 		 * **************************************** */
+		/**
+		 * 
+		 * @param	objectClass: Class to pool
+		 * @param	poolSize: size of pool
+		 */
 		public function ObjectPool(objectClass:Class, poolSize:uint)
 		{
 			this._objectClass = objectClass;
 			this._poolSize = poolSize;  
 			classString = _objectClass.toString();
 			pool = new Array();
-			this.populate();
+			addNewObjects(poolSize);
 		}
 		/* **************************************** *
 		 * Getters + Setters
 		 * **************************************** */
+		/** Class of Object Pooled */
 		public function get objectClass():Class { return _objectClass; }
-		
+		/** Maximum size of pool */
 		public function get poolSize():uint { return _poolSize; }
+		/** Current size of pool */
+		public function get length():uint { return pool.length; }
 		
 		/* **************************************** *
 		 * Public Methods
@@ -87,7 +99,7 @@ package nardan.toolshed.parts.performance.objectpool
 		}
 		
 		/**
-		 * Returns an object to the pool
+		 * Returns an Object to the pool
 		 * @param	object
 		 */
 		public function set(object:*):void
@@ -107,21 +119,24 @@ package nardan.toolshed.parts.performance.objectpool
 		 */
 		public function populate():void
 		{
-			var len:int = pool.length;
-			while (len < _poolSize)
-			{
-				pool.push(new _objectClass());
-				++len;
+			var num:uint = _poolSize - pool.length;
+			if (num > 0) {
+				addNewObjects(num);
 			}
 		}
 		
 		/**
-		 * 
-		 * @return
+		 * Empties the pool
 		 */
+		public function destroy():void
+		{
+			pool = new Array();
+		}
+		
+		/** @private standard toString()*/
 		public function toString():String
 		{
-			return '[object ObjectPool class=' + classString + ' size=' + pool.length + ']';
+			return '[object ObjectPool class=' + classString + ' length=' + this.length + ']';
 		}
 		/* **************************************** *
 		 * Event Handlers
@@ -129,5 +144,17 @@ package nardan.toolshed.parts.performance.objectpool
 		/* **************************************** *
 		 * Protected + Private Methods
 		 * **************************************** */
+		/**
+		 * Adds a number of Objects to the pool
+		 * @param	num: number of object to add.
+		 */
+		protected function addNewObjects(num:uint = 1):void
+		{
+			if (num < 1) return;
+			for (var i:uint = 0 ;  i < num ; ++i)
+			{
+				pool.push(new _objectClass());
+			}
+		}
 	}
 }

@@ -67,11 +67,34 @@ package nardan.toolshed.tools.transform
 		}
 		
 		/**
+		 * Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
+		 * @param	clip: DisplayObject(clip to scale)
+		 * @param	rect: Rectangle(to fit clip into)
+		 * @param	vAlign: String(vertical alignment)
+		 * @param	hAlign: String(horizontal alignment)
+		 */
+		public static function scaleFillRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
+			var clipRatio:Number = clip.width / clip.height;
+			
+			if (clipRatio > rect.width / rect.height) { // treat as landscape
+				clip.height = rect.height;
+				clip.width = rect.height * clipRatio;
+				alignInRect(clip, rect, ALIGN_TOP, hAlign);
+			}else { // treat as portrait
+				clip.width = rect.width;
+				clip.height = rect.width / clipRatio;
+				alignInRect(clip, rect, vAlign, ALIGN_LEFT);
+			}
+			
+			
+		}
+		
+		/**
 		 * Forces a clip to fill a rectangle
 		 * @param	clip
 		 * @param	rect
 		 */
-		public static function fitToRect(clip:DisplayObject, rect:Rectangle):void
+		public static function fillRect(clip:DisplayObject, rect:Rectangle):void
 		{
 			clip.width = rect.width;
 			clip.height = rect.height
@@ -95,10 +118,11 @@ package nardan.toolshed.tools.transform
 		 * @param	rect: Rectangle(to align clip into)
 		 * @param	vAlign: Number(verticl alignment)
 		 * @param	hAlign: Number (horizontal alignment)
+		 * @param	calcTopLeft : Boolean (Trie:calculate top-left before aligning, False: assume (0,0) top-left)
 		 */
-		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void
+		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void
 		{
-			var tl:Point = clip.getBounds(clip).topLeft;
+			var tl:Point = (calcTopLeft) ? clip.getBounds(clip).topLeft : new Point();
 			clip.y = rect.y + clip.y - tl.y + vAlign * (rect.height - clip.height);
 			clip.x = rect.x + clip.x - tl.x + hAlign * (rect.width - clip.width);
 		}
