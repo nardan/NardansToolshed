@@ -93,8 +93,8 @@ package nardan.toolshed.tools.transform
 		 * Aligns a clip in a rectangle
 		 * @param	clip: DisplayObject(clip to align)
 		 * @param	rect: Rectangle(to align clip into)
-		 * @param	vAlign: String(verticl alignment)
-		 * @param	hAlign: String (horizontal alignment)
+		 * @param	vAlign: Number(verticl alignment)
+		 * @param	hAlign: Number (horizontal alignment)
 		 */
 		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void
 		{

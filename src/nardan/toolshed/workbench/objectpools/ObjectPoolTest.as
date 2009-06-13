@@ -24,7 +24,7 @@ package nardan.toolshed.workbench.objectpools
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
-	import nardan.toolshed.tools.performance.objectpool.ObjectPoolCache;
+	import nardan.toolshed.parts.performance.objectpool.ObjectPoolCache;
 	
 	/**
 	 * ...

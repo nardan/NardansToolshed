@@ -23,7 +23,7 @@
 package nardan.toolshed.workbench.objectpools 
 {
 	import flash.display.Sprite;
-	import nardan.toolshed.tools.performance.objectpool.IPoolable;
+	import nardan.toolshed.parts.performance.objectpool.IPoolable;
 	
 	/**
 	 * ...

@@ -20,7 +20,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-package nardan.toolshed.tools.performance.objectpool 
+package nardan.toolshed.parts.performance.objectpool 
 {
 	import flash.utils.Dictionary;
 	
@@ -28,7 +28,7 @@ package nardan.toolshed.tools.performance.objectpool
 	 * A singleton to collate, hold and access ObjectPools.
 	 * 
 	 * @author real_nardan@hotmail.com
-	 * @see nardan.toolshed.tools.performance.objectpool.ObjectPool
+	 * @see nardan.toolshed.parts.performance.objectpool.ObjectPool
 	 */
 	public class ObjectPoolCache
 	{

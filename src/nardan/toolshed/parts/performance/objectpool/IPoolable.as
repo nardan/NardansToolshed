@@ -20,7 +20,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-package nardan.toolshed.tools.performance.objectpool 
+package nardan.toolshed.parts.performance.objectpool 
 {
 	
 	/**

@@ -20,11 +20,11 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-package nardan.toolshed.tools.performance.objectpool 
+package nardan.toolshed.parts.performance.objectpool 
 {
 	import flash.utils.Dictionary;
 	
-	/**
+	/*
 	 * An ObjectPool maintains a list of objects of a specidied Class to be called upon when needed.
 	 * 
 	 * @author real_nardan@hotmail.com
@@ -66,10 +66,10 @@ package nardan.toolshed.tools.performance.objectpool
 		 * Public Methods
 		 * **************************************** */
 		
-		 /**
-		  * Gets an Object from the pool
-		  * @return
-		  */
+		/**
+		 * Gets an Object from the pool
+		 * @return
+		 */
 		public function get():*
 		{
 			var object:* = pool.shift();
