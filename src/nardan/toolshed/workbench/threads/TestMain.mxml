@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test:TestApp xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:test="nardan.toolshed.workbench.threads.*">	
+	<mx:VDividedBox width="100%" height="100%" id="vBox">
+		<mx:Canvas width="100%" height="100%" id="canvas" backgroundColor="#FFFFFF">
+			
+		</mx:Canvas>
+		<mx:HBox height="50" id="controlsBox">
+		</mx:HBox>
+	</mx:VDividedBox>
+</test:TestApp>

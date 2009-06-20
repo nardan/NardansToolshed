@@ -9,6 +9,7 @@
 	import flash.utils.Timer;
 	import mx.containers.Box;
 	import mx.containers.Canvas;
+	import mx.containers.HBox;
 	import mx.containers.VDividedBox;
 	import mx.controls.sliderClasses.Slider;
 	import mx.core.Application;
@@ -34,6 +35,8 @@
 		public var imageExample:Class;
 		
 		public var vBox:VDividedBox;
+		public var canvas:Canvas;
+		public var controlsBox:Box;
 		private var sp:Sprite;
 		private var bmp:Bitmap;
 		private var rect:Rectangle;
@@ -62,17 +65,15 @@
 		{
 			trace('TestApp::onCreationComplete');
 			
-			var can:Canvas = vBox.getChildByName("canvas") as Canvas;
 			sp =  new Sprite();
 			bmp =  new imageExample() as Bitmap;
 			bmp.smoothing = true;
 			
-			can.rawChildren.addChild(bmp);
-			can.rawChildren.addChild(sp);
+			canvas.rawChildren.addChild(bmp);
+			canvas.rawChildren.addChild(sp);
 			
 			rect = new Rectangle(50, 50, 300, 200);
 		
-			var controlsBox:Box = vBox.getChildByName("controlsBox") as Box;
 			vAlign = controlsBox.getChildByName("vAlign") as Slider;
 			hAlign = controlsBox.getChildByName("hAlign") as Slider;
 			

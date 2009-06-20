@@ -25,7 +25,7 @@ package nardan.toolshed.parts.performance.objectpool
 	import flash.utils.Dictionary;
 	
 	/**
-	 * An ObjectPool maintains a list of objects of a specidied Class to be called upon when needed.
+	 * An ObjectPool maintains a list of objects of a specified Class to be called upon when needed.
 	 * 
 	 * @author real_nardan@hotmail.com
 	 */

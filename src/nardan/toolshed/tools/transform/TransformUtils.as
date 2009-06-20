@@ -118,7 +118,7 @@ package nardan.toolshed.tools.transform
 		 * @param	rect: Rectangle(to align clip into)
 		 * @param	vAlign: Number(verticl alignment)
 		 * @param	hAlign: Number (horizontal alignment)
-		 * @param	calcTopLeft : Boolean (Trie:calculate top-left before aligning, False: assume (0,0) top-left)
+		 * @param	calcTopLeft : Boolean (True:calculate top-left before aligning, False: assume (0,0) top-left)
 		 */
 		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void
 		{
