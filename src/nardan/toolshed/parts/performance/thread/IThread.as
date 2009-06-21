@@ -41,20 +41,20 @@ package nardan.toolshed.parts.performance.thread
 		function iterate():Boolean;
 		
 		/**
-		 * Called to terminate a thread, often in runIteration() 
+		 * Called to terminate a thread, often in <code>runIteration()</code> 
 		 */
 		function terminate():void;
 		/**
-		 * The active state of a Thread. If True then runIteration will be called
+		 * The active state of a Thread. If True then <code>runIteration()</code> will be called
 		 */
 		function get active():Boolean;
 		function set active(value:Boolean):void;
 		/**
-		 * Maximum time allocated to running the Thread's runSlice() iterations each "RunTick"
+		 * Maximum time allocated to running the Thread's <code>runIteration()</code> calls each "RunTick"
 		 */
 		function get maxTime():uint;
 		/**
-		 * Maximum iterations of runSlice() each "RunTick"
+		 * Maximum iterations of runIteration() each "RunTick"
 		 */
 		function get maxIterations():uint;
 	}

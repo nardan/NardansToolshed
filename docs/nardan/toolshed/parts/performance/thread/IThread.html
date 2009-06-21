@@ -70,13 +70,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("In
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxIterations">maxIterations</a> : uint<div class="summaryTableDescription">[read-only]
-   Maximum iterations of runSlice() each "RunTick"
+   Maximum iterations of runIteration() each "RunTick"
    </div>
 </td><td class="summaryTableOwnerCol">IThread</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxTime">maxTime</a> : uint<div class="summaryTableDescription">[read-only]
-   Maximum time allocated to running the Thread's runSlice() iterations each "RunTick"
+   Maximum time allocated to running the Thread's <code>runIteration()</code> calls each "RunTick"
    </div>
 </td><td class="summaryTableOwnerCol">IThread</td>
 </tr>
@@ -103,7 +103,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("In
 <div class="summarySignature">
 <a class="signatureLink" href="#terminate()">terminate</a>():void</div>
 <div class="summaryTableDescription">
-   Called to terminate a thread, often in runIteration() 
+   Called to terminate a thread, often in <code>runIteration()</code> 
    </div>
 </td><td class="summaryTableOwnerCol">IThread</td>
 </tr>
@@ -124,7 +124,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>active:Boolean</code>&nbsp;&nbsp;[read-write]<p>
-   The active state of a Thread. If True then runIteration will be called
+   The active state of a Thread. If True then <code>runIteration()</code> will be called
    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get active():Boolean</code>
@@ -140,7 +140,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>maxIterations:uint</code>&nbsp;&nbsp;[read-only]<p>
-   Maximum iterations of runSlice() each "RunTick"
+   Maximum iterations of runIteration() each "RunTick"
    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxIterations():uint</code>
@@ -154,7 +154,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>maxTime:uint</code>&nbsp;&nbsp;[read-only]<p>
-   Maximum time allocated to running the Thread's runSlice() iterations each "RunTick"
+   Maximum time allocated to running the Thread's <code>runIteration()</code> calls each "RunTick"
    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxTime():uint</code>
@@ -187,7 +187,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function terminate():void</code><p>
-   Called to terminate a thread, often in runIteration() 
+   Called to terminate a thread, often in <code>runIteration()</code> 
    </p></div>
 <br>
 <br>
