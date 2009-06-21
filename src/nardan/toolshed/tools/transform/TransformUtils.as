@@ -29,6 +29,7 @@ package nardan.toolshed.tools.transform
 	/**
 	 * A collection of static functions to apply some standard transformation tasks.
 	 * 
+	 * <br><b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
 	 * @author real_nardan@hotmail.com
 	 */
 	public class TransformUtils 

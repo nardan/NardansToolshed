@@ -27,8 +27,10 @@ package nardan.toolshed.parts.performance.objectpool
 	/**
 	 * A singleton to collate, hold and access ObjectPools.
 	 * 
+	 * <br><b>ObjectPoolCache ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * 
 	 * @author real_nardan@hotmail.com
-	 * @see nardan.toolshed.parts.performance.objectpool.ObjectPool
+	 * @see ObjectPool
 	 */
 	public class ObjectPoolCache
 	{

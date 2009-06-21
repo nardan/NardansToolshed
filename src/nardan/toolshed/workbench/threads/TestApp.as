@@ -1,6 +1,7 @@
 ﻿package nardan.toolshed.workbench.threads 
 {
 	import flash.events.Event;
+	import flash.text.TextField;
 	import mx.containers.Box;
 	import mx.containers.Canvas;
 	import mx.containers.VDividedBox;
@@ -27,6 +28,8 @@
 		public var controlsBox:Box;
 		public var canvas:Canvas;
 		private var thread:PrimesThread;
+		private var lastPrimesLength:int = 0;
+		private var output:TextField;
 
 		/* **************************************** *
 		 * Constructor
@@ -49,8 +52,16 @@
 		private function onCreationComplete(e:FlexEvent):void 
 		{
 			trace('TestApp::onCreationComplete');
+			
+			output =  new TextField();
+			output.width = canvas.width;
+			output.height =  canvas.height;
+			output.multiline = true;
+			output.wordWrap = true;
+			canvas.rawChildren.addChild(output);
+			
 			thread =  new PrimesThread();
-			thread.addEventListener(ThreadEvent.RUN_SLICE, onRunSlice);
+			thread.addEventListener(ThreadEvent.ITERATE, onIterate);
 			thread.addEventListener(ThreadEvent.TERMINATE, onTerminate);
 		}
 		
@@ -59,9 +70,14 @@
 			trace('TestApp::onTerminate thread.primes = ' + thread.primes);
 		}
 		
-		private function onRunSlice(e:ThreadEvent):void 
+		private function onIterate(e:ThreadEvent):void 
 		{
 			//trace('TestApp::onRunSlice');
+			if (lastPrimesLength < thread.primes.length) {
+				var str:String = thread.primes.join(", ");
+				output.text = str;
+				lastPrimesLength = thread.primes.length;
+			}
 		}
 		/* **************************************** *
 		 * Protected + Private Methods

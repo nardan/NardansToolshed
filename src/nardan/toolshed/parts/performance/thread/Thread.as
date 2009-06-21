@@ -1,4 +1,27 @@
-﻿package nardan.toolshed.parts.performance.thread 
+﻿/**
+ * Nardan's Tool-Box
+ * Copyright (c) 2009 Alastair Brown real_nardan@hotmail.com
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+ 
+
+package nardan.toolshed.parts.performance.thread 
 {
 	import flash.events.EventDispatcher;
 	import flash.events.TimerEvent;
@@ -6,14 +29,14 @@
 	import flash.utils.Timer;
 	
 	/**
-	 * Dispatched when  <code>runSlice()</code> is called. 
+	 * Dispatched when  <code>iterate()</code> is called. 
 	 * 
-	 * @see ThreadEvent#RUNSLICE
-	 * @eventType nardan.toolshed.parts.performance.thread.ThreadEvent.RUN_SLICE
+	 * @see ThreadEvent#ITERATE
+	 * @eventType nardan.toolshed.parts.performance.thread.ThreadEvent.ITERATE
 	 */
-	[Event("ThreadEvent.RUN_SLICE", type = "nardan.toolshed.parts.performance.thread.ThreadEvent")]
+	[Event("ThreadEvent.ITERATE", type = "nardan.toolshed.parts.performance.thread.ThreadEvent")]
 	/**
-	 * Dispatched when  <code>kill()</code> is called. 
+	 * Dispatched when  <code>terminate()</code> is called. 
 	 * 
 	 * @see ThreadEvent#TERMINATE
 	 * @eventType nardan.toolshed.parts.performance.thread.ThreadEvent.TERMINATE
@@ -21,7 +44,10 @@
 	[Event("ThreadEvent.TERMINATE", type="nardan.toolshed.parts.performance.thread.ThreadEvent")]
 	
 	/**
-	 * ...
+	 * Thread is a class that approximates threading in AS3. This Class is used to create Threads and control their execution.
+	 * 
+	 * <br><b>Thread ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * 
 	 * @author real_nardan@hotmail.com
 	 */
 	public class Thread extends EventDispatcher implements IThread
@@ -109,7 +135,7 @@
 		
 		/**
 		 * Get called every time the runTimer ticks.
-		 * Executes each threads runSlice() upto the threads maxTime or maxIterations. 
+		 * Executes each threads iterate() upto the threads maxTime or maxIterations. 
 		 * Will terminate early if total runnning time greater than the delay of the runTimer.
 		 * @param	e
 		 */
@@ -125,7 +151,7 @@
 					if (tickEnd < endTime) endTime = tickEnd;
 					var i:uint = 0;
 					var maxI:uint =  thread.maxIterations
-					while (thread.runSlice() && thread.active &&  maxI > i++ && getTimer() < endTime)
+					while (thread.iterate() && thread.active &&  maxI > i++ && getTimer() < endTime)
 					{
 						//trace('Thread::onRunTimerTick i = ' + i);
 					}
@@ -169,7 +195,7 @@
 		 */
 		public function get maxIterations():uint { return _maxIterations; }
 		
-		/** The active state of the Thread. If True runSlice() will get run */
+		/** The active state of the Thread. If True iterate() will get run */
 		public function get active():Boolean { return _active; }
 		public function set active(value:Boolean):void 
 		{
@@ -179,19 +205,19 @@
 		 * Public Methods
 		 * **************************************** */
 		/**
-		 * Single slice of thread
-		 * @return Boolean(should the slice run again if there is time)
+		 * Single iteration of thread
+		 * @return Boolean(should the iteration run again if there is time)
 		 */
-		public function runSlice():Boolean
+		public function iterate():Boolean
 		{
-			this.dispatchEvent(new ThreadEvent(ThreadEvent.RUN_SLICE));
+			this.dispatchEvent(new ThreadEvent(ThreadEvent.ITERATE));
 			return true;
 		}
 		
 		/**
 		 * Terminate the thread
 		 */
-		public function kill():void
+		public function terminate():void
 		{
 			this.dispatchEvent(new ThreadEvent(ThreadEvent.TERMINATE));
 			this.active =  false;

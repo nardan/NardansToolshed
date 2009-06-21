@@ -24,14 +24,18 @@ package nardan.toolshed.parts.performance.objectpool
 {
 	
 	/**
+	 * IPoolable is an optional interface for objects in an <code>ObjectPool</code> 
+	 * 
 	 * May be useful when pooling objects.
 	 * These functions get called by ObjectPool
 	 * 
 	 * getPrepare(): Gets called when being retrieved from it's pool 
 	 * setPrepare(): Gets called when returned to it's pool
 	 * 
+	 * <br><b>IPoolable ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * 
 	 * @author real_nardan@hotmail.com
-	 * @see nardan.toolshed.tools.performance.objectpool.ObjectPool
+	 * @see ObjectPool
 	 */
 	public interface IPoolable 
 	{

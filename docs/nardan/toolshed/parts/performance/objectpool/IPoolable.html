@@ -39,17 +39,23 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("In
 </tr>
 </table>
 <p></p>
+  IPoolable is an optional interface for objects in an <code>ObjectPool</code> 
+  
   May be useful when pooling objects.
   These functions get called by ObjectPool
   
   getPrepare(): Gets called when being retrieved from it's pool 
   setPrepare(): Gets called when returned to it's pool
   
+  <br><b>IPoolable ©2009 Alastair Brown. Licensed under the MIT license</b>
+  
   <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
-<div class="seeAlso">nardan.toolshed.tools.performance.objectpool.ObjectPool</div>
+<div class="seeAlso">
+<a href="ObjectPool.html" target="">ObjectPool</a>
+</div>
 <br>
 <hr>
 </div>

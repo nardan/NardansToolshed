@@ -19,7 +19,7 @@
 		* **************************************** */
 		public var primes:Vector.<uint>;
 		private var checkNum:uint;
-		private var nextPrimeIndex:uint;
+		private var primeIndex:uint;
 		/* **************************************** *
 		 * Constructor
 		 * **************************************** */
@@ -28,7 +28,7 @@
 			primes =  new Vector.<uint>();
 			primes.push(2);
 			checkNum = 3;
-			nextPrimeIndex = 0;
+			primeIndex = 0;
 			super(20, 200);
 		}
 		/* **************************************** *
@@ -37,30 +37,31 @@
 		/* **************************************** *
 		 * Public Methods
 		 * **************************************** */
-		override public function runSlice():Boolean 
+		override public function iterate():Boolean 
 		{
-			//trace('PrimesThread::runSlice');
-			super.runSlice();
-			//trace('PrimesThread::runSlice checkNum = ' + checkNum + ' primes[nextPrimeIndex] = ' + primes[nextPrimeIndex]);
-			var found:Boolean = Boolean(checkNum % primes[nextPrimeIndex] == 0);
+			//trace('PrimesThread::iterate');
+			super.iterate();
+			trace('PrimesThread::iterate checkNum = ' + checkNum + ' primes[primeIndex] = ' + primes[primeIndex]);
+			var found:Boolean = Boolean(checkNum % primes[primeIndex] == 0);
 			
 			//should we stop?
-			if (checkNum == uint.MAX_VALUE && nextPrimeIndex == primes.length -1) {
+			if (checkNum == uint.MAX_VALUE && primeIndex == primes.length -1) {
 				if (found) primes.push(checkNum);
-				kill();
+				terminate();
 				return false;
 			}
 			
 			if (found) {
 				
-				primes.push(checkNum);
+				//primes.push(checkNum);
 				++checkNum;
-				nextPrimeIndex = 0;
+				primeIndex = 0;
 				
 			}else {
-				nextPrimeIndex = (nextPrimeIndex + 1) % primes.length;
-				if (nextPrimeIndex == 0 ) {
-					trace('PrimesThread::runSlice PRIME! = ' + checkNum + ' primes.length = ' + primes.length);
+				primeIndex = (primeIndex + 1) % primes.length;
+				if (primeIndex == 0 ) {
+					//trace('PrimesThread::iterate PRIME! = ' + checkNum + ' primes.length = ' + primes.length);
+					primes.push(checkNum);
 					++checkNum;
 				}
 			}
@@ -68,10 +69,10 @@
 			return true;
 		}
 		
-		override public function kill():void 
+		override public function terminate():void 
 		{
-			trace('PrimesThread::kill');
-			super.kill();
+			trace('PrimesThread::terminate');
+			super.terminate();
 		}
 		/* **************************************** *
 		 * Event Handlers
