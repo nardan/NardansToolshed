@@ -123,7 +123,7 @@ package nardan.toolshed.tools.transform
 		 */
 		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void
 		{
-			var tl:Point = (calcTopLeft) ? clip.getBounds(clip).topLeft : new Point();
+			var tl:Point = (calcTopLeft) ? clip.getBounds(clip.parent).topLeft : new Point();
 			clip.y = rect.y + clip.y - tl.y + vAlign * (rect.height - clip.height);
 			clip.x = rect.x + clip.x - tl.x + hAlign * (rect.width - clip.width);
 		}

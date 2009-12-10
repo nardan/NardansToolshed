@@ -5,16 +5,19 @@
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.geom.Rectangle;
-	import flash.utils.getTimer;
 	import flash.utils.Timer;
+	import flash.utils.getTimer;
+	
 	import mx.containers.Box;
 	import mx.containers.Canvas;
 	import mx.containers.HBox;
 	import mx.containers.VDividedBox;
 	import mx.controls.sliderClasses.Slider;
-	import mx.core.Application;
 	import mx.events.FlexEvent;
+	
 	import nardan.toolshed.tools.transform.TransformUtils;
+	
+	import spark.components.Application;
 	
 	/**
 	 * ...
@@ -38,6 +41,7 @@
 		public var canvas:Canvas;
 		public var controlsBox:Box;
 		private var sp:Sprite;
+		private var tgt:Sprite;
 		private var bmp:Bitmap;
 		private var rect:Rectangle;
 		
@@ -66,13 +70,19 @@
 			trace('TestApp::onCreationComplete');
 			
 			sp =  new Sprite();
+			tgt =  new Sprite();
 			bmp =  new imageExample() as Bitmap;
 			bmp.smoothing = true;
+			tgt.addChild(bmp);
 			
-			canvas.rawChildren.addChild(bmp);
+			bmp.x =  bmp.width*-0.5;
+			bmp.y =  bmp.height*-0.5;
+			
+			canvas.rawChildren.addChild(tgt);
 			canvas.rawChildren.addChild(sp);
 			
-			rect = new Rectangle(50, 50, 300, 200);
+//			rect = new Rectangle(50, 50, 300, 200);
+			rect = new Rectangle(50, 50, 200, 300);
 		
 			vAlign = controlsBox.getChildByName("vAlign") as Slider;
 			hAlign = controlsBox.getChildByName("hAlign") as Slider;
@@ -89,9 +99,9 @@
 			sp.graphics.lineStyle(1, 0xFF0000);
 			sp.graphics.drawRect(rect.x, rect.y, rect.width, rect.height);
 			
-			bmp.x = bmp.y = 0; 
-			bmp.scaleX = bmp.scaleY = 1;
-			TransformUtils.scaleIntoRect(bmp, rect, vAlign.value, hAlign.value);
+			tgt.x = tgt.y = 0; 
+			tgt.scaleX = tgt.scaleY = 1;
+			TransformUtils.scaleIntoRect(tgt, rect, vAlign.value, hAlign.value);
 		}
 		
 	}

@@ -2,12 +2,15 @@
 {
 	import flash.events.Event;
 	import flash.text.TextField;
+	
 	import mx.containers.Box;
 	import mx.containers.Canvas;
 	import mx.containers.VDividedBox;
-	import mx.core.Application;
 	import mx.events.FlexEvent;
+	
 	import nardan.toolshed.parts.performance.thread.ThreadEvent;
+	
+	import spark.components.Application;
 	
 	/**
 	 * ...
