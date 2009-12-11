@@ -11,7 +11,7 @@
 		/* **************************************** *
 		* Static Constants + Variables
 		* **************************************** */
-		/***************************************** *
+		/* **************************************** *
 		 * Static Methods
 		 * **************************************** */
 		/* **************************************** *
@@ -46,24 +46,16 @@
 			
 			//should we stop?
 			if (checkNum == uint.MAX_VALUE && primeIndex == primes.length -1) {
-				if (found) primes.push(checkNum);
+				//if (!found) primes.push(checkNum);
 				terminate();
 				return false;
 			}
 			
-			if (found) {
-				
-				//primes.push(checkNum);
+			primeIndex++;
+			if (found || primeIndex == primes.length) {
+				if(!found) primes.push(checkNum);
 				++checkNum;
-				primeIndex = 0;
-				
-			}else {
-				primeIndex = (primeIndex + 1) % primes.length;
-				if (primeIndex == 0 ) {
-					//trace('PrimesThread::iterate PRIME! = ' + checkNum + ' primes.length = ' + primes.length);
-					primes.push(checkNum);
-					++checkNum;
-				}
+				primeIndex = 0;				
 			}
 			
 			return true;
