@@ -46,7 +46,7 @@
 			
 			//should we stop?
 			if (checkNum == uint.MAX_VALUE && primeIndex == primes.length -1) {
-				//if (!found) primes.push(checkNum); 
+				//if (!found) primes.push(checkNum);
 				terminate();
 				return false;
 			}
