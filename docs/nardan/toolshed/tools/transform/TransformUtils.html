@@ -1,368 +1,53 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
-<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="TransformUtils,nardan.toolshed.tools.transform.TransformUtils,ALIGN_BOTTOM,ALIGN_CENTRE,ALIGN_LEFT,ALIGN_RIGHT,ALIGN_TOP,alignInRect,fillRect,fitsInRect,scaleFillRect,scaleIntoRect" name="keywords">
-<title>nardan.toolshed.tools.transform.TransformUtils</title>
-</head>
-<body>
-<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
-<!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="TransformUtils,nardan.toolshed.tools.transform.TransformUtils,ALIGN_BOTTOM,ALIGN_CENTRE,ALIGN_LEFT,ALIGN_RIGHT,ALIGN_TOP,alignInRect,fillRect,fitsInRect,scaleFillRect,scaleIntoRect"><title>nardan.toolshed.tools.transform.TransformUtils</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'TransformUtils - API Documentation';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
-<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
-<tr>
-<td align="left" class="titleTableTitle">Nardan's Toolshed</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?nardan/toolshed/tools/transform/TransformUtils.html&amp;nardan/toolshed/tools/transform/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
-</tr>
-<tr class="titleTableRow2">
-<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TransformUtils</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
-</tr>
-<tr class="titleTableRow3">
-<td colspan="2">&nbsp;</td>
-</tr>
-</table>
-<script type="text/javascript" language="javascript">
-<!--
-if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class TransformUtils"); titleBar_setSubNav(true,false,false,false,false,false,true,false,false,false,false,false,false,false);}
---></script>
-<div class="MainContent">
-<table cellspacing="0" cellpadding="0" class="classHeaderTable">
-<tr>
-<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">nardan.toolshed.tools.transform</a></td>
-</tr>
-<tr>
-<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class TransformUtils</td>
-</tr>
-</table>
-<p></p>
-  A collection of static functions to apply some standard transformation tasks.
-  
-  <br><b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
-  <p></p>
-<br>
-<hr>
-</div>
-<a name="methodSummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Public Methods</div>
-<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#alignInRect()">alignInRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void</div>
-<div class="summaryTableDescription">[static]
-   Aligns a clip in a rectangle
-   </div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#fillRect()">fillRect</a>(clip:DisplayObject, rect:Rectangle):void</div>
-<div class="summaryTableDescription">[static]
-   Forces a clip to fill a rectangle
-   </div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#fitsInRect()">fitsInRect</a>(clip:DisplayObject, rect:Rectangle):Boolean</div>
-<div class="summaryTableDescription">[static]
-   Checks if clip would fit into a rectangle
-   </div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#scaleFillRect()">scaleFillRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</div>
-<div class="summaryTableDescription">[static]
-   Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
-   </div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#scaleIntoRect()">scaleIntoRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</div>
-<div class="summaryTableDescription">[static]
-   Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
-   </div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-</table>
-</div>
-<a name="constantSummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Public Constants</div>
-<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ALIGN_BOTTOM">ALIGN_BOTTOM</a> : Number = 1<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ALIGN_CENTRE">ALIGN_CENTRE</a> : Number = 0.5<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ALIGN_LEFT">ALIGN_LEFT</a> : Number = 0<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ALIGN_RIGHT">ALIGN_RIGHT</a> : Number = 1<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ALIGN_TOP">ALIGN_TOP</a> : Number = 0<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">TransformUtils</td>
-</tr>
-</table>
-</div>
-<script type="text/javascript" language="javascript">
-<!--
-showHideInherited();
---></script>
-<div class="MainContent">
-<a name="methodDetail"></a>
-<div class="detailSectionHeader">Method detail</div>
-<a name="alignInRect()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">alignInRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void</code><p>
-   Aligns a clip in a rectangle
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to align)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to align clip into)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; Number(verticl alignment)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; Number (horizontal alignment)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">calcTopLeft</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; : Boolean (True:calculate top-left before aligning, False: assume (0,0) top-left)
-   </td>
-</tr>
-</table>
-</div>
-<a name="fillRect()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">fillRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function fillRect(clip:DisplayObject, rect:Rectangle):void</code><p>
-   Forces a clip to fill a rectangle
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code></td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
-</tr>
-</table>
-</div>
-<a name="fitsInRect()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">fitsInRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function fitsInRect(clip:DisplayObject, rect:Rectangle):Boolean</code><p>
-   Checks if clip would fit into a rectangle
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code></td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
-</tr>
-</table>
-<p></p>
-<span class="label">Returns</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20"></td><td><code>Boolean</code></td>
-</tr>
-</table>
-</div>
-<a name="scaleFillRect()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">scaleFillRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function scaleFillRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</code><p>
-   Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to scale)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to fit clip into)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(vertical alignment)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(horizontal alignment)
-   </td>
-</tr>
-</table>
-</div>
-<a name="scaleIntoRect()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">scaleIntoRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</code><p>
-   Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to scale)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to fit clip into)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(vertical alignment)
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(horizontal alignment)
-   </td>
-</tr>
-</table>
-</div>
-<a name="constantDetail"></a>
-<div class="detailSectionHeader">Constant detail</div>
-<a name="ALIGN_BOTTOM"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ALIGN_BOTTOM</td><td class="detailHeaderType">constant</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static const ALIGN_BOTTOM:Number = 1</code>
-</div>
-<a name="ALIGN_CENTRE"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ALIGN_CENTRE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static const ALIGN_CENTRE:Number = 0.5</code>
-</div>
-<a name="ALIGN_LEFT"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ALIGN_LEFT</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static const ALIGN_LEFT:Number = 0</code>
-</div>
-<a name="ALIGN_RIGHT"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ALIGN_RIGHT</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static const ALIGN_RIGHT:Number = 1</code>
-</div>
-<a name="ALIGN_TOP"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ALIGN_TOP</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static const ALIGN_TOP:Number = 0</code>
-</div>
-<br>
-<br>
-<hr>
-<br>
-<p></p>
-<center class="copyright"> 
-</center>
-</div>
-</body>
-</html>
-<!-- -->
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?nardan/toolshed/tools/transform/TransformUtils.html&amp;nardan/toolshed/tools/transform/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">TransformUtils</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("TransformUtils"); titleBar_setSubNav(true,false,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">nardan.toolshed.tools.transform</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  TransformUtils</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TransformUtils  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+	 A collection of static functions to apply some standard transformation tasks.
+	 
+	 <b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
+	           <p></p><br/><hr></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#alignInRect()" class="signatureLink">alignInRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void</div><div class="summaryTableDescription">[static] 
+		 Aligns a clip in a rectangle
+		 </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#fillRect()" class="signatureLink">fillRect</a>(clip:DisplayObject, rect:Rectangle):void</div><div class="summaryTableDescription">[static] 
+		 Forces a clip to fill a rectangle
+		 </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#fitsInRect()" class="signatureLink">fitsInRect</a>(clip:DisplayObject, rect:Rectangle):Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks if clip would fit into a rectangle
+		 </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#scaleFillRect()" class="signatureLink">scaleFillRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</div><div class="summaryTableDescription">[static] 
+		 Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
+		 </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#scaleIntoRect()" class="signatureLink">scaleIntoRect</a>(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</div><div class="summaryTableDescription">[static] 
+		 Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
+		 </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALIGN_BOTTOM" class="signatureLink">ALIGN_BOTTOM</a> : Number = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALIGN_CENTRE" class="signatureLink">ALIGN_CENTRE</a> : Number = 0.5<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALIGN_LEFT" class="signatureLink">ALIGN_LEFT</a> : Number = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALIGN_RIGHT" class="signatureLink">ALIGN_RIGHT</a> : Number = 1<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALIGN_TOP" class="signatureLink">ALIGN_TOP</a> : Number = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">TransformUtils</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="alignInRect()"></a><a name="alignInRect(flash.display.DisplayObject,flash.geom.Rectangle,Number,Number,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">alignInRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void</code><p></p><p></p><p>
+		 Aligns a clip in a rectangle
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to align)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to align clip into)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; Number(verticl alignment)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; Number (horizontal alignment)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">calcTopLeft</span>:Boolean</code> (default = <code>true</code>)<code></code> &mdash; : Boolean (True:calculate top-left before aligning, False: assume (0,0) top-left)
+		 </td></tr></table></p></div><a name="fillRect()"></a><a name="fillRect(flash.display.DisplayObject,flash.geom.Rectangle)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">fillRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function fillRect(clip:DisplayObject, rect:Rectangle):void</code><p></p><p></p><p>
+		 Forces a clip to fill a rectangle
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td></tr></table></p></div><a name="fitsInRect()"></a><a name="fitsInRect(flash.display.DisplayObject,flash.geom.Rectangle)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">fitsInRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function fitsInRect(clip:DisplayObject, rect:Rectangle):Boolean</code><p></p><p></p><p>
+		 Checks if clip would fit into a rectangle
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; 
+		 </td></tr></table></div><a name="scaleFillRect()"></a><a name="scaleFillRect(flash.display.DisplayObject,flash.geom.Rectangle,Number,Number)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">scaleFillRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function scaleFillRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</code><p></p><p></p><p>
+		 Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to scale)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to fit clip into)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(vertical alignment)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(horizontal alignment)
+		 </td></tr></table></p></div><a name="scaleIntoRect()"></a><a name="scaleIntoRect(flash.display.DisplayObject,flash.geom.Rectangle,Number,Number)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">scaleIntoRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void</code><p></p><p></p><p>
+		 Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">clip</span>:DisplayObject</code> &mdash; DisplayObject(clip to scale)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; Rectangle(to fit clip into)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">vAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(vertical alignment)
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">hAlign</span>:Number</code> (default = <code>0.5</code>)<code></code> &mdash; String(horizontal alignment)
+		 </td></tr></table></p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="ALIGN_BOTTOM"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALIGN_BOTTOM</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const ALIGN_BOTTOM:Number = 1</code><p></p></div><a name="constantDetail"></a><a name="ALIGN_CENTRE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALIGN_CENTRE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const ALIGN_CENTRE:Number = 0.5</code><p></p></div><a name="constantDetail"></a><a name="ALIGN_LEFT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALIGN_LEFT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const ALIGN_LEFT:Number = 0</code><p></p></div><a name="constantDetail"></a><a name="ALIGN_RIGHT"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALIGN_RIGHT</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const ALIGN_RIGHT:Number = 1</code><p></p></div><a name="constantDetail"></a><a name="ALIGN_TOP"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALIGN_TOP</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const ALIGN_TOP:Number = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Fri Dec 11 2009, 11:49 AM Z  </center></div></body></html><!--<br/>Fri Dec 11 2009, 11:49 AM Z  -->

@@ -93,7 +93,7 @@ package nardan.toolshed.parts.performance.objectpool
 			}
 			
 			if (object is IPoolable) {
-				(object as IPoolable).getPrepare();
+				(object as IPoolable).prepareGet();
 			}
 			
 			return object;
@@ -107,7 +107,7 @@ package nardan.toolshed.parts.performance.objectpool
 		{
 			
 			if (object is IPoolable) {
-				(object as IPoolable).setPrepare();
+				(object as IPoolable).prepareSet();
 			}
 			
 			if (pool.length < _poolSize) {

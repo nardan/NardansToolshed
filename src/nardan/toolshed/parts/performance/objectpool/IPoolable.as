@@ -42,11 +42,11 @@ package nardan.toolshed.parts.performance.objectpool
 		/**
 		 * Gets called when an IPoolable object is retrieved from an ObjectPool
 		 */
-		function getPrepare():void;
+		function prepareGet():void;
 		/**
 		 * Gets called when an IPoolable object is returned to an ObjectPool
 		 */
-		function setPrepare():void;
+		function prepareSet():void;
 	}
 	
 }

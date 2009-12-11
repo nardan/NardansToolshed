@@ -118,7 +118,7 @@ package nardan.toolshed.parts.performance.objectpool
 		 * Public Methods
 		 * **************************************** */
 		/**
-		 * Emptys pool & stops replenishing
+		 * Emptys pool &amp; stops replenishing
 		 */
 		override public function destroy():void 
 		{
