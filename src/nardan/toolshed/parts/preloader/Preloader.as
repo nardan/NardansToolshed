@@ -25,10 +25,11 @@ package nardan.toolshed.parts.preloader
 	/**
 	 * A singleton implementation of PreloadGroup
 	 * 
-	 * <br/><b>Preloader ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>Preloader ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @see PreloadGroup
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 * 
 	 */
 	public final class Preloader extends PreloadGroup

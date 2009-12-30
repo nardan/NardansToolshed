@@ -29,13 +29,14 @@ package nardan.toolshed.parts.performance.objectpool
 	 * May be useful when pooling objects.
 	 * These functions get called by ObjectPool
 	 * 
-	 * getPrepare(): Gets called when being retrieved from it's pool 
-	 * setPrepare(): Gets called when returned to it's pool
+	 * prepareGet(): Gets called when being retrieved from it's pool 
+	 * prepareSet(): Gets called when returned to it's pool
 	 * 
-	 * <br><b>IPoolable ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>IPoolable ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @author real_nardan@hotmail.com
 	 * @see ObjectPool
+	 * @version 1.0
 	 */
 	public interface IPoolable 
 	{

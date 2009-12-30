@@ -29,9 +29,10 @@ package nardan.toolshed.parts.performance.objectpool
 	/**
 	 * An ObjectPool that replenishes over time.
 	 * 
-	 * <br><b>ObjectPoolReplenishing ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>ObjectPoolReplenishing ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 */
 	public class ObjectPoolReplenishing extends ObjectPool
 	{

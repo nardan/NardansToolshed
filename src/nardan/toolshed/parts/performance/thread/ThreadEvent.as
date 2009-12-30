@@ -27,14 +27,15 @@ package nardan.toolshed.parts.performance.thread
 	/**
 	 * <code>ThreadEvent</code>s get fired when a <code>Thread</code> iterates or terminates.
 	 * 
-	 * <br><b>ThreadEvent ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>ThreadEvent ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 */
 	public class ThreadEvent extends Event 
 	{
-		public static const ITERATE:String = "ThreadEvent.ITERATE";
-		public static const TERMINATE:String = "ThreadEvent.TERMINATE";
+		public static const ITERATE:String = "iterate";
+		public static const TERMINATE:String = "terminate";
 		
 		
 		public function ThreadEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false) 

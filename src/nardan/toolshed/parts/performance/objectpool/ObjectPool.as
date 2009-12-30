@@ -27,8 +27,9 @@ package nardan.toolshed.parts.performance.objectpool
 	/**
 	 * An ObjectPool maintains a list of objects of a specified Class to be called upon when needed.
 	 * 
-	 * <br><b>ObjectPool ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>ObjectPool ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 */
 	public class ObjectPool {
 		/* **************************************** *

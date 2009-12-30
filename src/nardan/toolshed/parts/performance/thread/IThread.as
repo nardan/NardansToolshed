@@ -27,10 +27,11 @@ package nardan.toolshed.parts.performance.thread
 	/**
 	 * IThread is the Interface of Threads and can be added to the runList using <code>Thread.addToRunList(thread:IThread, posn:int = -1)</code>.
 	 * 
-	 * <br><b>IThread ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>IThread ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @see Thread
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 */
 	public interface IThread 
 	{

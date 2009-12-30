@@ -25,36 +25,48 @@ package nardan.toolshed.parts.preloader
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
+	import flash.events.IOErrorEvent;
 	import flash.events.ProgressEvent;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
+	
+	/**
+	 * Dispatched when the loadRatio or completeRatio changes. 
+	 * 
+	 * @see Event#CHANGE
+	 * @eventType flash.events.Event.CHANGE
+	 */
+	[Event("change", type="flash.events.Event")]
+	
+	/**
+	 * Dispatched when the group has finished loading. 
+	 * 
+	 * @see Event#COMPLETE
+	 * @eventType flash.events.Event.COMPLETE
+	 */
+	[Event("complete", type="flash.events.Event")]
 	
 	/**
 	 * A class that listens to items being loaded and gives a progress based of contributing weights.
 	 * 
-	 * <br/><b>PreloadGroup ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>PreloadGroup ©2009 Alastair Brown. Licensed under the MIT license</b></p>
+	 * 
 	 * 
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
+	 * 
+	 * @example var group:PreloadGroup = new PreloadGroup("group name");
+	 * var subGroup:PreloadGroup = group.createGroup("sub group", 2);
+	 * 
+	 * group.addEventListener(Event.COMPLETE, loaderCompleteHandler);
+	 * group.addEventListener(Event.CHANGE, loaderChangeHandler);
+	 * 
+	 * subGroup.preload("images/someimage.gif");
 	 * 
 	 */
 	public class PreloadGroup extends EventDispatcher
 	{
-		
-		/**
-		 * Dispatched when the loadRatio changes. 
-		 * 
-		 * @see Event#CHANGED
-		 * @eventType flash.events.Event.CHANGED
-		 */
-		[Event("Event.CHANGED", type = "flash.events.Event")]
-		
-		/**
-		 * Dispatched when the group has finished loading. 
-		 * 
-		 * @see Event#COMPLETE
-		 * @eventType flash.events.Event.COMPLETE
-		 */
-		[Event("Event.COMPLETE", type = "flash.events.Event")]
-		
 		/* **************************************** *
 		* Static Constants + Variables
 		* **************************************** */
@@ -65,19 +77,23 @@ package nardan.toolshed.parts.preloader
 		* Properties
 		* **************************************** */
 		/** @private */
-		protected var items:Dictionary = new Dictionary(true);
+		private var items:Dictionary = new Dictionary(true);
 		/** @private */
-		protected var groups:Object = {};
+		private var groups:Object = {};
 		/** @private */
-		protected var _name:String = "";
+		private var _name:String = "";
 		/** @private */
-		protected var _weight:Number = 1;
+		private var _weight:Number = 1;
 		/** @private */
-		protected var _loadedItemsWeight:Number = 0;
+		private var _loadedItemsWeight:Number = 0;
 		/** @private */
-		protected var _invalidateTotals:Boolean = false;
+		private var _completedItemsWeight:Number = 0;
 		/** @private */
-		protected var _loadRatio:Number = 0;
+		private var _invalidateTotals:Boolean = false;
+		/** @private */
+		private var _loadRatio:Number = 0;
+		/** @private */
+		private var _completeRatio:Number = 0;
 		
 		/* **************************************** *
 		* Constructor
@@ -91,7 +107,7 @@ package nardan.toolshed.parts.preloader
 		 */
 		public function PreloadGroup(name:String, weight:Number = 1)
 		{
-			super(null);
+			if(weight < 0) throw new Error("weight must be >= 0");
 			this._name =  name;
 			this._weight =  weight;
 		}
@@ -100,8 +116,22 @@ package nardan.toolshed.parts.preloader
 		* Getters + Setters
 		* **************************************** */
 		/**
-		 * Gets the current ratio of how much is loaded 
+		 * Gets the ratio of completed weight to total weight. This does include weights on items that have failed to load.
+		 * 
+		 * @see loadRatio
 		 * @return Number
+		 * 
+		 */
+		public function get completeRatio():Number
+		{
+			if(_invalidateTotals) calculateTotals();
+			return _completeRatio;
+		}
+	
+		/**
+		 * Gets the ratio of laoded weight to total weight. This does not include and weights of items that have failed to load.
+		 * @see completeRatio 
+		 * @return 
 		 * 
 		 */
 		public function get loadRatio():Number
@@ -156,6 +186,7 @@ package nardan.toolshed.parts.preloader
 			groups = {};
 			
 			_loadedItemsWeight = 0;
+			_completedItemsWeight = 0;
 			_loadRatio = 0;
 		}
 		
@@ -170,6 +201,7 @@ package nardan.toolshed.parts.preloader
 		 */
 		public function createGroup(name:String, weight:Number = 1):PreloadGroup
 		{
+			if(weight < 0) throw new Error("weight must be >= 0");
 			if(groups[name] || name == "") return groups[name];
 			
 			var group:PreloadGroup =  new PreloadGroup(name, weight);
@@ -206,8 +238,7 @@ package nardan.toolshed.parts.preloader
 			getGroupsByNameRecursive(this, name, array);
 			return array;
 		}
-		
-		
+				
 		/**
 		 * Adds an item to be listened to for ProgressEvent.PROGRESS &amp; Event.COMPLETE
 		 *  
@@ -217,9 +248,30 @@ package nardan.toolshed.parts.preloader
 		 */
 		public function addItem(item:IEventDispatcher, weight:Number = 1):void
 		{
+			if(weight < 0) throw new Error("weight must be >= 0");
 			items[item] = {weight:weight, loadRatio:0};
 			listenToItem(item, true);
 			_invalidateTotals =  true;
+		}
+		
+		/**
+		 * Preloads an object and the provided URI
+		 *  
+		 * @param uri
+		 * @param weight
+		 * 
+		 */
+		public function preload(uri:String, weight:Number = 1):void
+		{
+			var loader:URLLoader =  new URLLoader();
+			addItem(loader, weight);
+			var request:URLRequest =  new URLRequest(uri);
+			loader.load(request);
+		}
+		
+		override public function toString():String
+		{
+			return "[object PreloadGroup name=\""+name+"\"]";
 		}
 		
 		/* **************************************** *
@@ -231,7 +283,7 @@ package nardan.toolshed.parts.preloader
 		 * @param event
 		 * 
 		 */
-		protected function groupCompleteHandler(event:Event):void
+		private function groupCompleteHandler(event:Event):void
 		{
 			var group:PreloadGroup = event.target as PreloadGroup;
 			//listenToGroup(group, false);
@@ -244,10 +296,11 @@ package nardan.toolshed.parts.preloader
 		 * @param event
 		 * 
 		 */
-		protected function groupChangeHandler(event:Event):void
+		private function groupChangeHandler(event:Event):void
 		{
+			//trace("groupChangeHandler "+this);
 			_invalidateTotals =  true;
-			//calculateTotals();
+			calculateTotals();
 		}
 		
 		/**
@@ -256,12 +309,31 @@ package nardan.toolshed.parts.preloader
 		 * @param event
 		 * 
 		 */
-		protected function itemCompleteHandler(event:Event):void
+		private function itemCompleteHandler(event:Event):void
 		{
 			var item:IEventDispatcher = event.target as IEventDispatcher;
+			//trace("itemCompleteHandler "+item);
 			listenToItem(item, false);
 			var itemObject:Object = items[item];
 			_loadedItemsWeight += itemObject.weight;
+			_completedItemsWeight += itemObject.weight;
+			delete items[item];
+			calculateTotals();
+		}
+		
+		/**
+		 * Gets called when the item has errored when loading
+		 *  
+		 * @param event
+		 * 
+		 */
+		private function itemErrorHandler(event:IOErrorEvent):void
+		{
+			var item:IEventDispatcher = event.target as IEventDispatcher;
+			//trace("itemErrorHandler "+item);
+			listenToItem(item, false);
+			var itemObject:Object = items[item];
+			_completedItemsWeight += itemObject.weight;
 			delete items[item];
 			calculateTotals();
 		}
@@ -272,14 +344,17 @@ package nardan.toolshed.parts.preloader
 		 * @param event
 		 * 
 		 */
-		protected function itemProgressHandler(event:ProgressEvent):void
+		private function itemProgressHandler(event:ProgressEvent):void
 		{
-			trace(event);
+			//trace(event);
 			var item:IEventDispatcher = event.target as IEventDispatcher;
 			var itemObject:Object = items[item];
 			itemObject.loadRatio = event.bytesLoaded/event.bytesTotal;
 			_invalidateTotals =  true;
+			calculateTotals();
 		}
+		
+		
 		/* **************************************** *
 		* Protected + Private Methods
 		* **************************************** */
@@ -316,7 +391,7 @@ package nardan.toolshed.parts.preloader
 		 * @param state
 		 * 
 		 */
-		protected function listenToGroup(group:PreloadGroup, state:Boolean): void
+		private function listenToGroup(group:PreloadGroup, state:Boolean): void
 		{
 			if(state)
 			{
@@ -337,15 +412,17 @@ package nardan.toolshed.parts.preloader
 		 * @param state
 		 * 
 		 */
-		protected function listenToItem(item:IEventDispatcher, state:Boolean):void
+		private function listenToItem(item:IEventDispatcher, state:Boolean):void
 		{
 			if(state)
 			{
 				item.addEventListener(Event.COMPLETE, itemCompleteHandler);
 				item.addEventListener(ProgressEvent.PROGRESS, itemProgressHandler);
+				item.addEventListener(IOErrorEvent.IO_ERROR, itemErrorHandler);
 			}else{
 				item.removeEventListener(Event.COMPLETE, itemCompleteHandler);
 				item.removeEventListener(ProgressEvent.PROGRESS, itemProgressHandler);
+				item.removeEventListener(IOErrorEvent.IO_ERROR, itemErrorHandler);
 			}
 		}
 		
@@ -354,31 +431,40 @@ package nardan.toolshed.parts.preloader
 		 * Calculates the total of the loadRatio 
 		 * 
 		 */
-		protected function calculateTotals():void
+		private function calculateTotals():void
 		{
-			var totalWeight:Number =  _loadedItemsWeight;
+			var totalWeight:Number =  _completedItemsWeight;
 			var totalLoadedWeight:Number = _loadedItemsWeight;
+			var totalCompletedWeight:Number = _completedItemsWeight;
+			var ratioWeight:Number;
 			
 			//items
 			for each(var itemObject:Object in items)
 			{
-				totalLoadedWeight += itemObject.weight * itemObject.loadRatio;
-				totalWeight += itemObject.weight;	
+				if(itemObject.weight > 0)
+				{
+					totalLoadedWeight += itemObject.weight * itemObject.loadRatio;
+					totalWeight += itemObject.weight;
+				}
 			}
 			
 			//groups
 			for each(var group:PreloadGroup in groups)
 			{
-				totalLoadedWeight += group.weight * group.loadRatio;
-				totalWeight += group.weight;
+				if(group.weight > 0)
+				{
+					totalLoadedWeight += group.weight * group.loadRatio;
+					totalCompletedWeight += group.weight * group.completeRatio;
+					totalWeight += group.weight;
+				}
 			}
 			
 			this._loadRatio = totalLoadedWeight/totalWeight;
-			
-			
+			this._completeRatio = totalCompletedWeight/totalWeight;
 			_invalidateTotals =  false;
 			
-			if(this.loadRatio == 1)
+			//trace("calculateTotals ", this, _loadRatio, _completeRatio, totalWeight);
+			if(this.completeRatio == 1)
 			{
 				this.dispatchEvent(new Event(Event.COMPLETE));
 			}

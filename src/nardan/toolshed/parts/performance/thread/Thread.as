@@ -46,9 +46,10 @@ package nardan.toolshed.parts.performance.thread
 	/**
 	 * Thread is a class that approximates threading in AS3. This Class is used to create Threads and control their execution.
 	 * 
-	 * <br><b>Thread ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <p><b>Thread ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @author real_nardan@hotmail.com
+	 * @version 1.0
 	 */
 	public class Thread extends EventDispatcher implements IThread
 	{
