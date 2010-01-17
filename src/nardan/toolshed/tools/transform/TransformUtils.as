@@ -22,7 +22,6 @@
  
 package nardan.toolshed.tools.transform
 {
-	import flash.display.DisplayObject;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
@@ -47,13 +46,13 @@ package nardan.toolshed.tools.transform
 		 * Static Methods
 		 * **************************************** */
 		/**
-		 * Scales a DisplayObject to fit into a Rectangle whilst maintaining aspect-ratio
-		 * @param	clip: DisplayObject(clip to scale)
+		 * Scales an Object to fit into a Rectangle whilst maintaining aspect-ratio
+		 * @param	clip: left typeless so it can apply to DisplayObject or Rectangle.
 		 * @param	rect: Rectangle(to fit clip into)
 		 * @param	vAlign: String(vertical alignment)
 		 * @param	hAlign: String(horizontal alignment)
 		 */
-		public static function scaleIntoRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
+		public static function scaleIntoRect(clip:*, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
 			var clipRatio:Number = clip.width / clip.height;
 			
 			if (clipRatio > rect.width / rect.height) { // treat as landscape
@@ -68,13 +67,13 @@ package nardan.toolshed.tools.transform
 		}
 		
 		/**
-		 * Scales a DisplayObject to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
-		 * @param	clip: DisplayObject(clip to scale)
+		 * Scales an Object to fill a Rectangle whilst maintaining aspect-ratio, some parts of the clip map be outside of the rectangle
+		 * @param	clip: left typeless so it can apply to DisplayObject or Rectangle.
 		 * @param	rect: Rectangle(to fit clip into)
 		 * @param	vAlign: String(vertical alignment)
 		 * @param	hAlign: String(horizontal alignment)
 		 */
-		public static function scaleFillRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
+		public static function scaleFillRect(clip:*, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5):void {
 			var clipRatio:Number = clip.width / clip.height;
 			
 			if (clipRatio > rect.width / rect.height) { // treat as landscape
@@ -86,8 +85,6 @@ package nardan.toolshed.tools.transform
 				clip.height = rect.width / clipRatio;
 				alignInRect(clip, rect, vAlign, ALIGN_LEFT);
 			}
-			
-			
 		}
 		
 		/**
@@ -95,7 +92,7 @@ package nardan.toolshed.tools.transform
 		 * @param	clip
 		 * @param	rect
 		 */
-		public static function fillRect(clip:DisplayObject, rect:Rectangle):void
+		public static function fillRect(clip:*, rect:Rectangle):void
 		{
 			clip.width = rect.width;
 			clip.height = rect.height
@@ -108,7 +105,7 @@ package nardan.toolshed.tools.transform
 		 * @param	rect
 		 * @return
 		 */
-		public static function fitsInRect(clip:DisplayObject, rect:Rectangle):Boolean
+		public static function fitsInRect(clip:*, rect:Rectangle):Boolean
 		{
 			return Boolean(clip.width <= rect.width && clip.height <= rect.height);
 		}
@@ -121,9 +118,9 @@ package nardan.toolshed.tools.transform
 		 * @param	hAlign: Number (horizontal alignment)
 		 * @param	calcTopLeft : Boolean (True:calculate top-left before aligning, False: assume (0,0) top-left)
 		 */
-		public static function alignInRect(clip:DisplayObject, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void
+		public static function alignInRect(clip:*, rect:Rectangle, vAlign:Number = 0.5, hAlign:Number = 0.5, calcTopLeft:Boolean = true):void
 		{
-			var tl:Point = (calcTopLeft) ? clip.getBounds(clip.parent).topLeft : new Point();
+			var tl:Point = (calcTopLeft && clip.getBounds) ? clip.getBounds(clip.parent).topLeft : new Point();
 			clip.y = rect.y + clip.y - tl.y + vAlign * (rect.height - clip.height);
 			clip.x = rect.x + clip.x - tl.x + hAlign * (rect.width - clip.width);
 		}
