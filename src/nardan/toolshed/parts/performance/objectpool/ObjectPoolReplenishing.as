@@ -1,6 +1,6 @@
 ﻿/**
  * Nardan's Tool-Box
- * Copyright (c) 2009 Alastair Brown real_nardan@hotmail.com
+ * Copyright (c) 2010 Alastair Brown alastair@codecharmer.comm
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,7 +31,7 @@ package nardan.toolshed.parts.performance.objectpool
 	 * 
 	 * <p><b>ObjectPoolReplenishing ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
-	 * @author real_nardan@hotmail.com
+	 * @author alastairr@codecharmer.comom
 	 * @version 1.0
 	 */
 	public class ObjectPoolReplenishing extends ObjectPool

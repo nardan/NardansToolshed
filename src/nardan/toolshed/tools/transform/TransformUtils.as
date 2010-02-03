@@ -1,6 +1,6 @@
 ﻿/**
  * Nardan's Tool-Box
- * Copyright (c) 2009 Alastair Brown real_nardan@hotmail.com
+ * Copyright (c) 2010 Alastair Brown alastair@codecharmer.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,14 +22,17 @@
  
 package nardan.toolshed.tools.transform
 {
+	import flash.display.DisplayObject;
+	import flash.display.DisplayObjectContainer;
+	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	/**
 	 * A collection of static functions to apply some standard transformation tasks.
 	 * 
-	 * <br><b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
-	 * @author real_nardan@hotmail.com
+	 * <br/><b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * @author alastair@codecharmer.com
 	 */
 	public class TransformUtils 
 	{
@@ -41,6 +44,9 @@ package nardan.toolshed.tools.transform
 		public static const ALIGN_LEFT:Number = 0;
 		public static const ALIGN_RIGHT:Number = 1;
 		public static const ALIGN_CENTRE:Number = 0.5;
+		
+		private static const DEG_TO_RAD:Number =  Math.PI / 180;
+		private static const RAD_TO_DEG:Number =  180 /  Math.PI;
 		
 		/* **************************************** *
 		 * Static Methods
@@ -124,6 +130,74 @@ package nardan.toolshed.tools.transform
 			clip.y = rect.y + clip.y - tl.y + vAlign * (rect.height - clip.height);
 			clip.x = rect.x + clip.x - tl.x + hAlign * (rect.width - clip.width);
 		}
+		
+		
+		/**
+		 * Rotates a <code>clip</code> around a point in it's own coordinate space, by a given <code>angle</code>.
+		 *  
+		 * @param clip : The DisplayObject to rotate.
+		 * @param angle : The angle to rotate the <code>clip</code> by in radians.
+		 * @param point : The point to rotate around.
+		 * 
+		 */
+		public static function rotateAroundInternalPoint(clip:DisplayObject, angle:Number, point:Point):void
+		{
+			var coords:DisplayObjectContainer =  (clip is DisplayObjectContainer) ? (clip as DisplayObjectContainer) : clip.parent;
+			rotateAroundExternalPoint(clip, angle, point, coords);
+		}
+		
+		/**
+		 * Rotates a <code>clip</code> around a point in <code>coords</code>'s coordinate space, by a given <code>angle</code>.
+		 * 
+		 * @param clip : The DisplayObject to rotate.
+		 * @param angle : The angle to rotate the <code>clip</code> by in radians.
+		 * @param point : The point to rotate around.
+		 * @param coords: The local coordinate space of <code>point</code>.
+		 * 
+		 */
+		public static function rotateAroundExternalPoint(clip:DisplayObject, angle:Number, point:Point, coords:DisplayObjectContainer):void
+		{
+			if(coords != clip.parent) point = clip.parent.globalToLocal(coords.localToGlobal(point));
+			var m:Matrix = clip.transform.matrix;
+			//m.transformPoint(point);
+			m.translate(-point.x, -point.y);
+			m.rotate(angle);
+			m.translate(point.x, point.y);
+			clip.transform.matrix =  m;
+		}
+		
+		/**
+		 * Rotates a <code>clip</code> around a point in it's own coordinate space, to a given <code>angle</code>.
+		 * 
+		 * @param clip : The DisplayObject to rotate.
+		 * @param angle : The angle to rotate the <code>clip</code> to in radians.
+		 * @param point : The point to rotate around.
+		 * 
+		 */
+		public static function setAngleAroundInternalPoint(clip:DisplayObject, angle:Number, point:Point):void
+		{
+			var coords:DisplayObjectContainer =  (clip is DisplayObjectContainer) ? (clip as DisplayObjectContainer) : clip.parent;
+			setAngleAroundExternalPoint(clip, angle, point, coords);
+		}
+		
+		/**
+		 * Rotates a <code>clip</code> around a point in <code>coords</code>'s coordinate space, to a given <code>angle</code>.
+		 * 
+		 * @param clip : The DisplayObject to rotate.
+		 * @param angle : The angle to rotate the <code>clip</code> to in radians.
+		 * @param point : The point to rotate around.
+		 * @param coords: The local coordinate space of <code>point</code>.
+		 * 
+		 */
+		public static function setAngleAroundExternalPoint(clip:DisplayObject, angle:Number, point:Point, coords:DisplayObjectContainer):void
+		{
+			if(coords != clip.parent) point = clip.parent.globalToLocal(coords.localToGlobal(point));
+			var m:Matrix = clip.transform.matrix;
+			var ang:Number = clip.rotation * DEG_TO_RAD;
+			angle = angle - ang;
+			rotateAroundExternalPoint(clip, angle, point, clip.parent);
+		}
+		
 		/* **************************************** *
 		 * Constructor
 		 * **************************************** */

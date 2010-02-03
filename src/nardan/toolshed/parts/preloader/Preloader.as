@@ -1,6 +1,6 @@
 /** 
  * Nardan's Tool-Box
- * Copyright (c) 2009 Alastair Brown real_nardan@hotmail.com
+ * Copyright (c) 2010 Alastair Brown alastair@codecharmer.comm
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -28,7 +28,7 @@ package nardan.toolshed.parts.preloader
 	 * <p><b>Preloader ©2009 Alastair Brown. Licensed under the MIT license</b></p>
 	 * 
 	 * @see PreloadGroup
-	 * @author real_nardan@hotmail.com
+	 * @author alastair@codecharmer.comom
 	 * @version 1.0
 	 * 
 	 */
