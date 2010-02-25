@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Nardan's Tool-Box
  * Copyright (c) 2010 Alastair Brown alastair@codecharmer.com
  *
@@ -95,8 +95,8 @@ package nardan.toolshed.tools.transform
 		
 		/**
 		 * Forces a clip to fill a rectangle
-		 * @param	clip
-		 * @param	rect
+		 * @param	clip: left typeless so it can apply to DisplayObject or Rectangle.
+		 * @param	rect: Rectangle(to fit clip into)
 		 */
 		public static function fillRect(clip:*, rect:Rectangle):void
 		{
@@ -107,8 +107,8 @@ package nardan.toolshed.tools.transform
 		
 		/**
 		 * Checks if clip would fit into a rectangle
-		 * @param	clip
-		 * @param	rect
+		 * @param	clip: left typeless so it can apply to DisplayObject or Rectangle.
+		 * @param	rect: Rectangle(to fit clip into)
 		 * @return
 		 */
 		public static function fitsInRect(clip:*, rect:Rectangle):Boolean
@@ -118,9 +118,9 @@ package nardan.toolshed.tools.transform
 		
 		/**
 		 * Aligns a clip in a rectangle
-		 * @param	clip: DisplayObject(clip to align)
+		 * @param	clip: left typeless so it can apply to DisplayObject or Rectangle.
 		 * @param	rect: Rectangle(to align clip into)
-		 * @param	vAlign: Number(verticl alignment)
+		 * @param	vAlign: Number(vertical alignment)
 		 * @param	hAlign: Number (horizontal alignment)
 		 * @param	calcTopLeft : Boolean (True:calculate top-left before aligning, False: assume (0,0) top-left)
 		 */
