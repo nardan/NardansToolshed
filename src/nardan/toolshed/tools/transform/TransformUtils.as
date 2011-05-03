@@ -31,7 +31,7 @@ package nardan.toolshed.tools.transform
 	/**
 	 * A collection of static functions to apply some standard transformation tasks.
 	 * 
-	 * <br/><b>TransformUtils ©2009 Alastair Brown. Licensed under the MIT license</b>
+	 * <br/><b>TransformUtils ©2011 Alastair Brown. Licensed under the MIT license</b>
 	 * @author alastair@codecharmer.com
 	 */
 	public class TransformUtils 
@@ -45,8 +45,8 @@ package nardan.toolshed.tools.transform
 		public static const ALIGN_RIGHT:Number = 1;
 		public static const ALIGN_CENTRE:Number = 0.5;
 		
-		private static const DEG_TO_RAD:Number =  Math.PI / 180;
-		private static const RAD_TO_DEG:Number =  180 /  Math.PI;
+		public static const DEG_TO_RAD:Number =  Math.PI / 180;
+		public static const RAD_TO_DEG:Number =  180 /  Math.PI;
 		
 		/* **************************************** *
 		 * Static Methods
